@@ -245,6 +245,13 @@
                 this.setOptions(options);
             }
             this._loadEvents();
+        },
+        /**
+         * Auto hide $hoverElem on the first time
+         */
+        init: function(){
+            this.$hoverElem.css('top', '100%');
+            return this;
         }
     };
 
@@ -255,7 +262,7 @@
 
             // Initialize hoverdir.
             if (!data) {
-                data = new Hoverdir(this, options);
+                data = (new Hoverdir(this, options)).init();
                 $(this).data('hoverdir', data);
             }
 
